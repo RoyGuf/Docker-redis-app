@@ -1,0 +1,29 @@
+name: docker-app
+services:
+  postgres:
+    container_name: postgres-14
+    image: postgres:14.1
+    environment:
+      POSTGRES_PASSWORD: gufa1918
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    hostname: postgres
+    volumes:
+      - db-data:/foo
+
+  redis: 
+    image: redis:latest
+    container_name: client
+    restart: unless-stopped
+    expose:
+      - 6379
+  app: 
+    depends_on:
+      - redis
+    container_name: docker-app
+    image: my-node-app
+    ports:
+      - "13000:3000"
+    
+volumes:
+  db-data:
