@@ -1,5 +1,5 @@
-const pool              = require('./db');
-const { getOrSetCache } = require('./redis');
+const pool              = require('../db');
+const { getOrSetCache } = require('../../../redis');
 
 async function getAllUsers(req, res){
   try {

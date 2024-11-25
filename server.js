@@ -5,7 +5,7 @@ const port    = 3000;
 const { getAllUsers, 
         getUserById, 
         addUser, 
-        setupDatabase } = require('./routs');
+        setupDatabase } = require('./utils/db/routs/routs');
 
 const app = express();
 app.use(express.json());
